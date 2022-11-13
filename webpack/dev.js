@@ -19,6 +19,9 @@ module.exports = merge(common, {
             watch: true,
             directory: path.join(__dirname, '../app/assets')
         },
+        devMiddleware: {
+            writeToDisk: true
+        },
         setupMiddlewares: (middlewares, devServer) => {
             console.log('--------------------------------------------');
             const port = devServer.options.port;
