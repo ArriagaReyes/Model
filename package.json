@@ -6,15 +6,18 @@
   "license": "MIT",
   "scripts": {
     "clear": "rimraf public",
-    "dev": "webpack serve --config ./webpack/dev.js",
-    "build": "webpack --config ./webpack/prod.js"
+    "client:dev": "webpack serve --config ./webpack/dev.js",
+    "server:dev": "nodemon ./server/index.js",
+    "dev": "concurrently --kill-others \"npm run client:dev\" \"npm run server:dev\""
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",
     "@babel/preset-env": "^7.17.10",
     "babel-loader": "^8.2.5",
+    "concurrently": "^7.5.0",
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
     "nodemon": "^2.0.16",
     "portfinder-sync": "^0.0.2",
     "postcss": "^8.4.13",
@@ -29,7 +32,10 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "axios": "^1.1.3",
+    "express": "^4.18.2",
     "gsap": "^3.10.4",
+    "pug": "^3.0.2",
     "three": "^0.140.0"
   }
 }
