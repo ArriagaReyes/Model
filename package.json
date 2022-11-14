@@ -7,7 +7,7 @@
   "scripts": {
     "clear": "rimraf public",
     "client:dev": "webpack serve --config ./webpack/dev.js",
-    "server:dev": "nodemon ./server/index.js",
+    "server:dev": "set NODE_ENV=development&& nodemon --config nodemon.json ./server/index.js",
     "dev": "concurrently --kill-others \"npm run client:dev\" \"npm run server:dev\""
   },
   "devDependencies": {
