@@ -1,8 +1,13 @@
-const express = require('express');
+const logger = require('./utils/logger.util');
 const path = require('path');
+const express = require('express');
+const morgan = require('morgan');
+const cors = require('cors');
 
 const app = express();
 
+app.use(morgan('common'));
+app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public')));
 
@@ -14,5 +19,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(1234, () => {
-    console.log(`Model running at http://localhost:${1234}`);
+    logger.info(`Model running at http://localhost:1234`);
 });
