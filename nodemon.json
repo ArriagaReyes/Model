@@ -1,7 +1,0 @@
-{
-    "ignore": [
-        "app",
-        "public"
-    ],
-    "ext": "pug"
-}

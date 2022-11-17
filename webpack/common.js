@@ -1,4 +1,4 @@
-const CssPlugin = require('mini-css-extract-plugin');
+const HtmlPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -9,8 +9,9 @@ module.exports = {
         path: path.resolve(__dirname, '../public')
     },
     plugins: [
-        new CssPlugin({
-            filename: "bundle.css"
+        new HtmlPlugin({
+            template: path.resolve(__dirname, '../app/index.html'),
+            favicon: path.resolve(__dirname, '../app/favicon.png')
         })
     ],
     module: {
@@ -18,7 +19,7 @@ module.exports = {
             {
                 test: /\.css/,
                 exclude: /node_modules/,
-                use: [CssPlugin.loader, 'css-loader', 'postcss-loader']
+                use: ['style-loader', 'css-loader', 'postcss-loader']
             },
             {
                 test: /\.js$/,
