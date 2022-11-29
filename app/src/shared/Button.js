@@ -24,7 +24,8 @@ export default class ButtonComponent extends Component {
     render() {
     	return createElement('button', this.text, {
 	    onclick: this.click.bind(this),
-	    'class': this.className
+	    'class': this.className,
+	    'data-component-id': this.id
 	});
     }
 }

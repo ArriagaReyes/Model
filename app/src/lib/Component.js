@@ -6,7 +6,7 @@ export default class Component extends Consequence{
     constructor() {
 	super();
 
-	this.id = (id++).toString();
+	this.id = (id + 1).toString();
 	this.state = {};
 	this.stateHandler = {
 	    set: (target, prop, value, receiver) => {
